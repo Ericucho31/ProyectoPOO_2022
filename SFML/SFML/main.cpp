@@ -52,6 +52,8 @@ int main()
 		ventana->draw(navecita);//dibuja la navecita otra vez
 
 		ventana->display();//actualiza lo que va a mostrar la ventana
+
+		///////**Esto solo es una prueba para ver si lo estoy haciendo bien con el git/////****
 	}
 	return 0;
 }
