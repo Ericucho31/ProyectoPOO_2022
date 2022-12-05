@@ -13,8 +13,8 @@ int main()
 
 	Juego jueguito;
 
-	jueguito.CrearNuevoSprite("planet.png", "fondo", 0, 0);
-	jueguito.CrearNuevoSprite("nave.png", "nave", 400, 300);
+	jueguito.CrearNuevoSprite("Archivos/planet.png", "fondo", 0, 0);
+	jueguito.CrearNuevoSprite("Archivos/nave.png", "nave", 400, 300);
 
 	auto prueba = jueguito.ListaSprites.find("nave");
 	
