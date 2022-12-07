@@ -1,9 +1,4 @@
 ﻿  Entidad.cpp
-  Juego.cpp
-C:\Users\saldo\Documents\UNI QUINTO SEM\Estructuras_Datos\SFML\SFML\Juego.cpp(23,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\saldo\Documents\UNI QUINTO SEM\Estructuras_Datos\SFML\SFML\Juego.cpp(23,26): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\saldo\Documents\UNI QUINTO SEM\Estructuras_Datos\SFML\SFML\Juego.cpp(38,33): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\saldo\Documents\UNI QUINTO SEM\Estructuras_Datos\SFML\SFML\Juego.cpp(38,30): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   main.cpp
   Generando código...
   SFML.vcxproj -> C:\Users\saldo\Documents\UNI QUINTO SEM\Estructuras_Datos\SFML\x64\Debug\SFML.exe

@@ -13,17 +13,17 @@ int main()
 {
 	bool game_over = false;//solo se declara un bool
 
-	Juego jueguito;
+	Juego *jueguito= new Juego;
 
-	auto prueba = jueguito.ListaSprites.find("nave");
+	auto prueba = jueguito->ListaSprites.find("nave");
 	
 	while (!game_over)
 	{
 		prueba->second.setRotation(180);
 
-		jueguito.ventana->draw(jueguito.ListaSprites.find("fondo")->second);
-		jueguito.ventana->draw(prueba->second);
-		jueguito.ventana->display();
+		jueguito->ventana->draw(jueguito->ListaSprites.find("fondo")->second);
+		jueguito->ventana->draw(prueba->second);
+		jueguito->ventana->display();
 		
 	}
 		

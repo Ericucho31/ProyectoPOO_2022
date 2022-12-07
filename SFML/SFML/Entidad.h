@@ -20,7 +20,9 @@ public:
 	int hp=0;
 	std::shared_ptr <Texture> textura;
 	Sprite skin;
-	std::shared_ptr <Juego> juegoDondeProviene;
+	Juego* juegoDondeProviene=nullptr;
 
+	Entidad(string id, Juego *juegoDondeProviene);
+	virtual void Moverse() = 0;
 };
 
