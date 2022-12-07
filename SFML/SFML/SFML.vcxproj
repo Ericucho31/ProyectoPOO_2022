@@ -133,6 +133,7 @@
     <ClCompile Include="Entidad.cpp" />
     <ClCompile Include="Juego.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\planet.png" />
@@ -140,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="Entidad.h" />
     <ClInclude Include="Juego.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

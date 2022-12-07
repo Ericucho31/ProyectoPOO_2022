@@ -16,7 +16,7 @@ class Player :
 	public Entidad
 {
 public:
-	Player();
+	Player(string id, Juego* juegoDondeProviene);
 
 
 };
