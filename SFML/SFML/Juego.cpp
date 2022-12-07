@@ -7,6 +7,10 @@ Juego::Juego()
 {
 	ventana = new RenderWindow(VideoMode(800, 600, 32), "Ejemplo");
 	ventana->setFramerateLimit(60);
+
+
+	CrearNuevoSprite("Archivos/planet.png", "fondo", 0, 0);
+	CrearNuevoSprite("Archivos/nave.png", "nave", 400, 300);
 }
 
 void Juego::CrearNuevoSprite(string NombreArchivo, string id, int x, int y)

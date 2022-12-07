@@ -1,7 +1,9 @@
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
 #include "Juego.h"
+#include "Entidad.h"
 #include <iostream>
+#include <memory>
 
 using namespace sf;
 using std::cout;
@@ -13,17 +15,13 @@ int main()
 
 	Juego jueguito;
 
-	jueguito.CrearNuevoSprite("Archivos/planet.png", "fondo", 0, 0);
-	jueguito.CrearNuevoSprite("Archivos/nave.png", "nave", 400, 300);
-
 	auto prueba = jueguito.ListaSprites.find("nave");
 	
 	while (!game_over)
 	{
 		prueba->second.setRotation(180);
-		jueguito.DibujarSprite("fondo", 100, 100);
-		jueguito.DibujarSprite("nave", 300, 300);
 
+		jueguito.ventana->draw(jueguito.ListaSprites.find("fondo")->second);
 		jueguito.ventana->draw(prueba->second);
 		jueguito.ventana->display();
 		

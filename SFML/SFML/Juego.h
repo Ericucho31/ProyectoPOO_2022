@@ -4,6 +4,8 @@
 #include "SFML/Audio.hpp"
 #include <iostream>
 #include <string>
+#include <memory>
+
 
 using namespace sf;
 using std::cout;
