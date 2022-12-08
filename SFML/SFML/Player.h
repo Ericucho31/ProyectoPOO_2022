@@ -17,6 +17,6 @@ class Player :
 {
 public:
 	Player(string id, Juego* juegoDondeProviene);
-
+	void Moverse() override;
 
 };

@@ -2,6 +2,7 @@
 #include "SFML/Audio.hpp"
 #include "Juego.h"
 #include "Entidad.h"
+#include "Player.h"
 #include <iostream>
 #include <memory>
 
@@ -15,6 +16,8 @@ int main()
 
 	Juego *jueguito= new Juego;
 
+	Player j1("nave", jueguito);
+
 	auto prueba = jueguito->ListaSprites.find("nave");
 	
 	while (!game_over)
@@ -23,6 +26,10 @@ int main()
 
 		jueguito->ventana->draw(jueguito->ListaSprites.find("fondo")->second);
 		jueguito->ventana->draw(prueba->second);
+
+		j1.Moverse();
+
+		jueguito->ventana->draw(j1.skin);
 		jueguito->ventana->display();
 		
 	}
