@@ -17,23 +17,22 @@ int main()
 	bool game_over = false;//solo se declara un bool
 
 	Juego *jueguito= new Juego;
-	jueguito->CrearNuevoSprite("Archivos/enemy.png", "enemy", 200, 200);
 
 	Player j1("nave", jueguito);
 	Enemy e1("enemy", jueguito);
 
-	auto prueba = jueguito->ListaSprites.find("nave");
+	auto enemy = jueguito->ListaSprites.find("enemy")->second;
 	
 	while (!game_over)
 	{
-		prueba->second.setRotation(180);
 
 		jueguito->ventana->draw(jueguito->ListaSprites.find("fondo")->second);
-		jueguito->ventana->draw(prueba->second);
 
 		j1.Moverse();
+		e1.Moverse();
 
 		jueguito->ventana->draw(j1.skin);
+		jueguito->ventana->draw(e1.skin);
 		jueguito->ventana->display();
 		
 	}

@@ -5,14 +5,12 @@ Enemy::Enemy(string id, Juego* juegoDondeProviene) : Entidad(id, juegoDondeProvi
 	this->juegoDondeProviene = juegoDondeProviene;
 	this->textura = this->juegoDondeProviene->ListaTextura.find("enemy")->second;
 	this->skin = this->juegoDondeProviene->ListaSprites.find("enemy")->second;
+	this->skin.setScale(0.25, 0.25);
 }
 
 void Enemy::Moverse()
 {
-	bool on = true;
-	int azar = rand() %4;
-	while (on)
-	{
+
 		int azar = rand() % 4;
 		Vector2f vectPlayer = this->skin.getPosition();
 		if (azar==0)
@@ -23,5 +21,4 @@ void Enemy::Moverse()
 			this->skin.setPosition(vectPlayer.x, vectPlayer.y - 5);
 		if (azar == 3)
 			this->skin.setPosition(vectPlayer.x, vectPlayer.y + 5);
-	}
 }
