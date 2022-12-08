@@ -1,4 +1,3 @@
-﻿  Player.cpp
-  main.cpp
-  Generando código...
+﻿  main.cpp
+C:\Users\saldo\Documents\UNI QUINTO SEM\Estructuras_Datos\SFML\SFML\main.cpp(16,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   SFML.vcxproj -> C:\Users\saldo\Documents\UNI QUINTO SEM\Estructuras_Datos\SFML\x64\Debug\SFML.exe
