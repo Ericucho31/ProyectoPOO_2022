@@ -7,6 +7,7 @@
 #include <memory>
 #include "Juego.h"
 #include "Entidad.h"
+#include "Bullets.h"
 
 using namespace sf;
 using std::vector;
@@ -16,7 +17,9 @@ class Player :
 	public Entidad
 {
 public:
+	vector <Bullets> balas;
+	SoundBuffer buffer;
+	Sound disparo;
 	Player(string id, Juego* juegoDondeProviene);
 	void Moverse() override;
-
 };

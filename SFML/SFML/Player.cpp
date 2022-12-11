@@ -3,9 +3,14 @@
 
 Player::Player(string id, Juego* juegoDondeProviene) : Entidad(id, juegoDondeProviene)
 {
+	
 	this->juegoDondeProviene = juegoDondeProviene;
 	this->textura = this->juegoDondeProviene->ListaTextura.find("nave")->second;
 	this->skin = this->juegoDondeProviene->ListaSprites.find("nave")->second;
+	this->skin.setOrigin(38, 0);
+
+	buffer.loadFromFile("Archivos/DisparoPlayer.wav");
+	disparo.setBuffer(buffer);
 }
 
 void Player::Moverse()
@@ -29,6 +34,7 @@ void Player::Moverse()
 	if (this->skin.getPosition().y >= this->juegoDondeProviene-> ventana->getSize().y - this->skin.getGlobalBounds().height) //Colision del limite inferior
 		this->skin.setPosition(this->skin.getPosition().x, this->juegoDondeProviene->ventana->getSize().y - this->skin.getGlobalBounds().height);
 
+	//***************Movimiento de la nave del jugador*****************//
 	Vector2f vectPlayer = this->skin.getPosition();
 	if (Keyboard::isKeyPressed(Keyboard::Left))
 		this->skin.setPosition(vectPlayer.x - 10, vectPlayer.y);
@@ -38,4 +44,35 @@ void Player::Moverse()
 		this->skin.setPosition(vectPlayer.x, vectPlayer.y - 10);
 	if (Keyboard::isKeyPressed(Keyboard::Down))
 		this->skin.setPosition(vectPlayer.x, vectPlayer.y + 10);
+	if (Keyboard::isKeyPressed(Keyboard::Space))
+	{
+		//Cada vez que se presiona la tecla de espacio, se creara una bala, que se alamacenara en el vector
+		this->balas.push_back(Bullets(juegoDondeProviene->ListaSprites.find("bala")->second, this->skin.getPosition()) );
+		this->disparo.play(); //y tambien sonará el boton de disparar
+	}
+
+
+	for (size_t i = 0; i < this->balas.size(); i++)
+	{
+		this->balas[i].s_bullet.move(0.f, -25.f);
+
+		//Balas fueras de la ventana
+		if (this->balas[i].s_bullet.getPosition().y > this->juegoDondeProviene->ventana->getSize().y) //Condicion que señala si la bala esta fuera del limite en x de la ventana
+			this->balas.erase(this->balas.begin() + i);
+	}
+
+	for (size_t i = 0; i < this->balas.size(); i++)
+	{
+		juegoDondeProviene->ventana->draw(this->balas[i].s_bullet);
+	}
 }
+/*
+void Player::Animar()
+{
+	for (auto frame : animacion)
+	{
+		
+		juegoDondeProviene->ventana->draw(frame);
+	}
+}
+*/

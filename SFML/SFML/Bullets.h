@@ -17,7 +17,8 @@ class Bullets
 {
 public:
 	Sprite s_bullet; //s_bullet (s_ de sprite para diferenciarlo del constructor)
-	Bullets(Texture* textura, Vector2f pos);
+
+	Bullets(Sprite sprite_bulllet, Vector2f pos);
 
 	~Bullets() {};
 	//se necesita crear un constructor y destructor de las balas porque queremos que existan 
