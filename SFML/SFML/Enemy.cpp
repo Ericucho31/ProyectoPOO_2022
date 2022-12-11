@@ -10,7 +10,6 @@ Enemy::Enemy(string id, Juego* juegoDondeProviene) : Entidad(id, juegoDondeProvi
 
 void Enemy::Moverse()
 {
-
 		int azar = rand() % 4;
 		Vector2f vectPlayer = this->skin.getPosition();
 		if (azar==0)
