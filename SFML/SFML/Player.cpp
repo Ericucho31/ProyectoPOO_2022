@@ -8,6 +8,7 @@ Player::Player(string id, Juego* juegoDondeProviene) : Entidad(id, juegoDondePro
 	this->textura = this->juegoDondeProviene->ListaTextura.find("nave")->second;
 	this->skin = this->juegoDondeProviene->ListaSprites.find("nave")->second;
 	this->skin.setOrigin(38, 0);
+	this->hp = 100;
 
 	buffer.loadFromFile("Archivos/DisparoPlayer.wav");
 	disparo.setBuffer(buffer);
@@ -15,7 +16,7 @@ Player::Player(string id, Juego* juegoDondeProviene) : Entidad(id, juegoDondePro
 
 void Player::Moverse()
 {
-
+	coolDown++; //Cada frame se actualiza ese valor
 	if (this->skin.getPosition().x <= 0)
 		this->skin.setPosition(0.f, this->skin.getPosition().y); //Colision hacia la izquierda
 	//player1.naveplayer.getPosition().x nos da la posicion en X y si es menos que 0 hacemos que 
@@ -44,14 +45,22 @@ void Player::Moverse()
 		this->skin.setPosition(vectPlayer.x, vectPlayer.y - 10);
 	if (Keyboard::isKeyPressed(Keyboard::Down))
 		this->skin.setPosition(vectPlayer.x, vectPlayer.y + 10);
-	if (Keyboard::isKeyPressed(Keyboard::Space))
+	if (Keyboard::isKeyPressed(Keyboard::Space) && coolDown>15)
 	{
-		//Cada vez que se presiona la tecla de espacio, se creara una bala, que se alamacenara en el vector
-		this->balas.push_back(Bullets(juegoDondeProviene->ListaSprites.find("bala")->second, this->skin.getPosition()) );
-		this->disparo.play(); //y tambien sonará el boton de disparar
+		this->Disparar();
 	}
+}
 
+void Player::Disparar()
+{
+	//Cada vez que se presiona la tecla de espacio, se creara una bala, que se alamacenara en el vector
+	this->balas.push_back(Bullets(juegoDondeProviene->ListaSprites.find("bala")->second, this->skin.getPosition()));
+	this->disparo.play(); //y tambien sonará el boton de disparar
+	coolDown = 0;
+}
 
+void Player::DibujarBalas()
+{
 	for (size_t i = 0; i < this->balas.size(); i++)
 	{
 		this->balas[i].s_bullet.move(0.f, -25.f);
@@ -65,6 +74,12 @@ void Player::Moverse()
 	{
 		juegoDondeProviene->ventana->draw(this->balas[i].s_bullet);
 	}
+}
+void Player::Procesar()
+{
+	this->Moverse();
+	this->DibujarBalas();
+	this->juegoDondeProviene->ventana->draw(this->skin);
 }
 /*
 void Player::Animar()

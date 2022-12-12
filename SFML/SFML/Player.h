@@ -2,7 +2,6 @@
 
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
-#include <iostream>
 #include <string>
 #include <memory>
 #include "Juego.h"
@@ -17,9 +16,15 @@ class Player :
 	public Entidad
 {
 public:
+	Player(string id, Juego* juegoDondeProviene);
+
+	int coolDown;
 	vector <Bullets> balas;
 	SoundBuffer buffer;
 	Sound disparo;
-	Player(string id, Juego* juegoDondeProviene);
+	
 	void Moverse() override;
+	void Disparar();
+	void DibujarBalas();
+	void Procesar() override;
 };

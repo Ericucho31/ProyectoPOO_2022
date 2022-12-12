@@ -24,5 +24,6 @@ public:
 
 	Entidad(string id, Juego *juegoDondeProviene);
 	virtual void Moverse() = 0;
+	virtual void Procesar() = 0;
 };
 

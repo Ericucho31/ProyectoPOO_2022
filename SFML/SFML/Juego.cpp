@@ -12,6 +12,7 @@ Juego::Juego()
 	CrearNuevoSprite("Archivos/planet.png", "fondo", 0, 0);
 	CrearNuevoSprite("Archivos/nave.png", "nave", 400, 300);
 	CrearNuevoSprite("Archivos/enemy.png", "enemy", 200, 200);
+	CrearNuevoSprite("Archivos/bullet.png", "bala", 95, 105);
 }
 
 void Juego::CrearNuevoSprite(string NombreArchivo, string id, int x, int y)
