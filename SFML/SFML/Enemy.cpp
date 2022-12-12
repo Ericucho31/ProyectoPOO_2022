@@ -19,14 +19,48 @@ void Enemy::Moverse()
 {
 		int azar = rand() % 4;
 		Vector2f vectPlayer = this->skin.getPosition();
-		if (azar==0)
+		switch (azar)
+		{
+		case 0:
 			this->skin.setPosition(vectPlayer.x - 10, vectPlayer.y);
-		if (azar == 1)
+		break;
+
+		case 1:
 			this->skin.setPosition(vectPlayer.x + 10, vectPlayer.y);
-		if (azar == 2)
+		break;
+
+		case 2:
 			this->skin.setPosition(vectPlayer.x, vectPlayer.y - 10);
-		if (azar == 3)
+		break;
+
+		case 3:
 			this->skin.setPosition(vectPlayer.x, vectPlayer.y + 10);
+		break;
+		default:
+			break;
+		}
+
+		/// TOPES PARA QUE NO SALGA DE LA PANTALLA
+
+		if (this->skin.getPosition().y > 300)
+		{
+			this->skin.setPosition(vectPlayer.x, vectPlayer.y - 10);
+		}
+
+		if (this->skin.getPosition().y < 0 + this->skin.getGlobalBounds().height)
+		{
+			this->skin.setPosition(vectPlayer.x, vectPlayer.y + 10);
+		}
+
+		if (this->skin.getPosition().x < 0 + this->skin.getGlobalBounds().width/2)
+		{
+			this->skin.setPosition(vectPlayer.x+50, vectPlayer.y);
+		}
+
+		if (this->skin.getPosition().x > 800 )
+		{
+			this->skin.setPosition(vectPlayer.x - 50, vectPlayer.y);
+		}
 }
 
 void Enemy::Disparar()

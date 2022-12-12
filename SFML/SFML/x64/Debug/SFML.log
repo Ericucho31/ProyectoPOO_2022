@@ -1,4 +1,3 @@
-﻿  Enemy.cpp
-C:\Users\saldo\Documents\UNI QUINTO SEM\Estructuras_Datos\SFML\SFML\Enemy.cpp(8,30): warning C4305: 'argumento': truncamiento de 'double' a 'float'
-C:\Users\saldo\Documents\UNI QUINTO SEM\Estructuras_Datos\SFML\SFML\Enemy.cpp(9,84): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+﻿  main.cpp
+C:\Users\saldo\Documents\UNI QUINTO SEM\Estructuras_Datos\SFML\SFML\main.cpp(31,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   SFML.vcxproj -> C:\Users\saldo\Documents\UNI QUINTO SEM\Estructuras_Datos\SFML\x64\Debug\SFML.exe
