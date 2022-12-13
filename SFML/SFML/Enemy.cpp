@@ -86,9 +86,23 @@ void Enemy::Disparar()
 	}
 }
 
+void Enemy::MostrarHP()
+{
+	Font font;
+	font.loadFromFile("Archivos/space age.ttf");
+	Text EhpText;
+	EhpText.setFont(font);
+	EhpText.setCharacterSize(15);
+	EhpText.setFillColor(Color::White);
+	EhpText.setString(std::to_string(this->hp));
+	EhpText.setPosition(this->skin.getPosition().x - EhpText.getGlobalBounds().width, this->skin.getPosition().y);
+	juegoDondeProviene->ventana->draw(EhpText);
+}
+
 void Enemy::Procesar()
 {
 	this->Moverse();
 	this->Disparar();
+	this->MostrarHP();
 	this->juegoDondeProviene->ventana->draw(this->skin);
 }

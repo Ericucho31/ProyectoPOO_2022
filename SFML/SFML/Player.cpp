@@ -9,6 +9,7 @@ Player::Player(string id, Juego* juegoDondeProviene) : Entidad(id, juegoDondePro
 	this->skin = this->juegoDondeProviene->ListaSprites.find("nave")->second;
 	this->skin.setOrigin(38, 0);
 	this->hp = 100;
+	this->vidas = 3;
 
 	buffer.loadFromFile("Archivos/DisparoPlayer.wav");
 	disparo.setBuffer(buffer);
@@ -57,6 +58,11 @@ void Player::Disparar()
 	this->balas.push_back(Bullets(juegoDondeProviene->ListaSprites.find("bala")->second, this->skin.getPosition()));
 	this->disparo.play(); //y tambien sonará el boton de disparar
 	coolDown = 0;
+}
+
+void Player::RecibirDaño()
+{
+
 }
 
 void Player::DibujarBalas()

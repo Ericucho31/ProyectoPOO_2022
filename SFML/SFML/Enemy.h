@@ -12,6 +12,7 @@ public:
     vector <Bullets> balas;
 
     void Moverse() override;
+    void MostrarHP();
     void Disparar();
     void Procesar() override;
 };
