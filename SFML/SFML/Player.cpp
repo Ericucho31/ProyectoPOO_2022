@@ -13,6 +13,7 @@ Player::Player(string id, Juego* juegoDondeProviene) : Entidad(id, juegoDondePro
 
 	buffer.loadFromFile("Archivos/DisparoPlayer.wav");
 	disparo.setBuffer(buffer);
+	disparo.setVolume(50);
 }
 
 void Player::Moverse()
