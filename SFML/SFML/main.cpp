@@ -133,7 +133,9 @@ void Procesos()
 	PhpText.setPosition(630, 15);
 
 	vidas.setFont(font);
-	vidas.setCharacterSize(15);
+	vidas.setCharacterSize(16);
 	vidas.setFillColor(Color::White);
 	vidas.setPosition(630, 35);
+	//comentario para que cambie el git
+	vidas.setCharacterSize(26);
 }
